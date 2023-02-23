@@ -1,32 +1,49 @@
 import React, { Suspense } from "react";
-import { NavLink } from "react-router-dom";
+import { Switch, Route, useHistory, useLocation } from "react-router-dom";
 
+import { NavLink } from "react-router-dom";
+import "./HomePage.css"
 const HomePage = (props) => {
-     
+  const history = useHistory();
+
+const handleNavigation=(url)=>{
+history.push(url)
+}     
   
   return <>
+  <div className="container">
+  <div className="sub-container">
   <div>
-  <NavLink to="/Vtrack" end>
+<span onClick={()=>handleNavigation("/Vtrack")}>
+  <i className="fa fa-bar-chart"></i>
   Vtrack
-</NavLink>
+
+</span>
   </div>
   <div>
-  <NavLink to="/Shipping" end>
-Shipping
-</NavLink>
+ 
+<span onClick={()=>handleNavigation("/Shipping")}>
+  <i className="fas fa-truck"></i>
+  Shipping
+</span>
   </div>
 
 <div>
-<NavLink to="/SharedData" end>
-SharedData
-</NavLink>
+<span onClick={()=>handleNavigation("/SharedData")}>
+  <i className="fas fa-user-friends"></i>
+  SharedData
+</span>
 </div>
 <div>
-<NavLink to="/Documents" end>
-Documents
-</NavLink>
+
+<span onClick={()=>handleNavigation("/Documents")}>
+  <i className="fa fa-file"></i>
+  Documents
+
+</span>
 </div>
-  
+  </div>
+</div>
   </>;
 };
 export default HomePage;
