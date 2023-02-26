@@ -1,4 +1,5 @@
 import React, { Suspense } from "react";
+import axios from "axios"
 class ErrorBoundary extends React.Component {
     state = { hasError: false, error: null };
     static getDerivedStateFromError(error) {
@@ -8,6 +9,14 @@ class ErrorBoundary extends React.Component {
         error
       };
     }
+// componentDidMount(){
+//   axios.get("http://localhost:3004/remoteEntry.js").then((res)=>{
+//     console.log("success")
+//   }).catch((error)=>{
+//     console.log(" error")
+//   })
+
+//}
     render() {
       if (this.state.hasError) {
         return this.props.fallback;
