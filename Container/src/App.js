@@ -2,6 +2,7 @@ import React, { Suspense, useState, useEffect } from "react";
 import "./App.scss";
 import { Switch, Route, useHistory, useLocation } from "react-router-dom";
 import HomePage from "./Components/HomePage"
+import ErrorBoundary from "./error/ErrorBoundary"
 const Vtrack = React.lazy(() => import("Vtrac/Vtrack"));
 const Shipping=React.lazy(()=>import("Shipping/ShippingDataPage"))
 const SharedData=React.lazy(()=>import("SharedData/SharedDataPage"))
@@ -40,24 +41,32 @@ const App = () => {
             <HomePage/>
         </Route>
         <Route path="/Vtrack" strict exact>
-          <Suspense fallback={null}>
+        <ErrorBoundary fallback={<h2>Vtrac can't be loaded 404</h2>}>
+          <Suspense fallback={"loading"}>
             <Vtrack/>
           </Suspense>
+          </ErrorBoundary>
         </Route>
         <Route path="/Shipping" strict exact>
-          <Suspense fallback={null}>
+        <ErrorBoundary fallback={<h2>Shipping can't be loaded 404</h2>}>
+          <Suspense fallback={"loading"}>
           <Shipping/>
           </Suspense>
+          </ErrorBoundary>
         </Route>
         <Route path="/SharedData" strict exact>
-          <Suspense fallback={null}>
+          <ErrorBoundary fallback={<h2>SharedData can't be loaded 404</h2>}>
+          <Suspense fallback={"loading"}>
           <SharedData/>
           </Suspense>
+          </ErrorBoundary>
         </Route>
         <Route path="/Documents" strict exact>
-          <Suspense fallback={null}>
+        <ErrorBoundary fallback={<h2>Documents can't be loaded 404</h2>}>
+          <Suspense fallback={"loading"}>
           <Documents/>
           </Suspense>
+          </ErrorBoundary>
         </Route>
       </Switch>
     </>
