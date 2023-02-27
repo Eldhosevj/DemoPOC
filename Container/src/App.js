@@ -6,7 +6,7 @@ import ErrorBoundary from "./error/ErrorBoundary"
 const Vtrack = React.lazy(() => import("Vtrac/Vtrack"));
 const Shipping=React.lazy(()=>import("Shipping/ShippingDataPage"))
 const SharedData=React.lazy(()=>import("SharedData/SharedDataPage"))
-const Documents=React.lazy(()=>import("Documents/DocumentPage"))
+//const Documents=React.lazy(()=>import("Documents/DocumentPage"))
 
 
 
@@ -61,6 +61,7 @@ const App = () => {
           </Suspense>
           </ErrorBoundary>
         </Route>
+        {/*
         <Route path="/Documents" strict exact>
         <ErrorBoundary fallback={<h2>Documents can't be loaded 404</h2>}>
           <Suspense fallback={"loading"}>
@@ -68,6 +69,7 @@ const App = () => {
           </Suspense>
           </ErrorBoundary>
         </Route>
+*/}
       </Switch>
     </>
   );
