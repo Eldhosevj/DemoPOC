@@ -2,6 +2,7 @@ import View from '../Document/View';
 import Document from '../Documents/Document';
 import SideNavBar from "../sidebar/SideNavBar.jsx";
 import React,{useState} from 'react';
+import Grids from '../Grid/Grid.jsx'
 const DocumentPage=()=>{
   const [route, setRoute] = useState("null");
 
@@ -11,7 +12,7 @@ const DocumentPage=()=>{
       const component = (url) => {
         if (url == "/View") {
           return (
-              <View/>
+              <Grids/>
           );
         }
         else{
