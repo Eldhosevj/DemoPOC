@@ -23,7 +23,9 @@ module.exports = {
       name: "Shipping",
       filename: "remoteEntry.js",
       exposes: {
-        "./ShippingDataPage":"./src/components/Pages/ShippingDataPage.js"
+        "./RecievedShipment":
+          "./src/components/RecievedShipment/RecievedShipment.js",
+        "./ViewShipment": "./src/components/ViewShipment/ViewShipment.js",
       },
       shared: ["react", "react-dom"],
     }),

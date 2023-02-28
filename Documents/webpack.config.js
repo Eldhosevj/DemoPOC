@@ -11,11 +11,6 @@ module.exports = {
     filename: "[name].bundle.js",
   },
   devServer: {
-    // headers: {
-    //   "Access-Control-Allow-Origin": "*",
-    //   "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, PATCH, OPTIONS",
-    //   "Access-Control-Allow-Headers": "X-Requested-With, content-type, Authorization"
-    // },
     static: {
       directory: path.resolve(__dirname, "dist"),
     },
@@ -28,7 +23,7 @@ module.exports = {
       name: "Documents",
       filename: "remoteEntry.js",
       exposes: {
-        "./DocumentPage": "./src/components/Pages/DocumentPage.js",
+        "./View": "./src/components/Document/View.js",
       },
       shared: ["react", "react-dom"],
     }),

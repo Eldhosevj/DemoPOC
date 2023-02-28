@@ -1,6 +1,9 @@
 import React ,{useState}from "react";
 import { Route, Switch, } from "react-router-dom";
 import "./App.scss";
+import './index.css';
+import './App.css'
+
 import DocumentPage from "./components/Pages/DocumentPage";
 
 const App = () => {

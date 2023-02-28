@@ -23,9 +23,10 @@ module.exports = {
       name: "Vtrac",
       filename: "remoteEntry.js",
       exposes: {
-        "./Vtrack":"./src/components/Pages/VtraceDataPage.js"
-      
-
+        "./Vtrack":"./src/components/Pages/VtraceDataPage.js",
+        "./Orders":"./src/components/Orders/Orders.js",
+        "./Reports":"./src/components/Reports/Reports.js",
+        "./Logs":"./src/components/Logs/Logs.js"
       },
       shared: ["react","react-dom"]
     }),
