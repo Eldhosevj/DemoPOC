@@ -23,7 +23,7 @@ module.exports = {
       name: "SharedData",
       filename: "remoteEntry.js",
       exposes: {
-        "./SharedDataPage": "./src/components/Pages/SharedDataPage.js",
+        "./Customer": "./src/components/Customer/Customer.js",
       },
       shared: ["react", "react-dom"],
     }),
