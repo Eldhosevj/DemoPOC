@@ -4,7 +4,7 @@ import { Switch, Route, useHistory, useLocation } from "react-router-dom";
 import SelectRoute from "./Components/SelectRoute"
 import ErrorBoundary from "./error/ErrorBoundary"
 import SideNavBar from "./SidebarNavbar/SideNavBar.jsx";
-//const Documents=React.lazy(()=>import("Documents/DocumentPage"))
+import HomePage from "./Components/HomePage";
 
 
 
@@ -37,10 +37,10 @@ const App = () => {
     <>
     <SideNavBar navigationClicked={navigationClicked}/>
       <Switch>
-      {/*<Route path="/" strict exact>
+      {<Route path="/" strict exact>
             <HomePage/>
         </Route>
-  */}
+  }
         <Route path="/Vtrac" strict exact>
             <SelectRoute url={route}/>
         </Route>

@@ -1,20 +1,10 @@
-import React, { Suspense } from "react";
-import { Switch, Route, useHistory, useLocation } from "react-router-dom";
-import SideNavBar from "../SidebarNavbar/SideNavBar.jsx";
 
-import { NavLink } from "react-router-dom";
-import "./HomePage.css";
-const HomePage = (props) => {
-  const history = useHistory();
-
-  const handleNavigation = (url) => {
-    history.push(url);
-  };
-
+import React from "react";
+const HomePage = () => {
   return (
-    <>
-      <SideNavBar handleNavigation={handleNavigation} />
-    </>
+    <div className="wrapper">
+      <div className="main_content">Welcome to HomePage</div>
+    </div>
   );
 };
 export default HomePage;
