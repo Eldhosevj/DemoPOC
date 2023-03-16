@@ -1,3 +1,4 @@
+/* eslint-disable quotes */
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const path = require("path");
@@ -10,6 +11,7 @@ module.exports = {
     path: path.resolve(__dirname, "dist"),
     filename: "[name].bundle.js",
   },
+  devtool: "eval-source-map",
   devServer: {
     static: {
       directory: path.resolve(__dirname, "dist"),
@@ -19,18 +21,8 @@ module.exports = {
     historyApiFallback: true,
   },
   plugins: [
-    new ModuleFederationPlugin({
-      name: "Vtrac",
-      filename: "remoteEntry.js",
-      exposes: {
-        "./Vtrack":"./src/components/Pages/VtraceDataPage.js",
-        "./Orders":"./src/components/Orders/Orders.js",
-        "./Reports":"./src/components/Reports/Reports.js",
-        "./Logs":"./src/components/Logs/Logs.js"
-      },
-      shared: ["react","react-dom"]
-    }),
-    new MiniCssExtractPlugin(),
+   
+   new MiniCssExtractPlugin(),
     new HtmlWebpackPlugin({
       template: "./src/index.html",
       filename: "index.html",
@@ -38,6 +30,7 @@ module.exports = {
   ],
   module: {
     rules: [
+    
       {
         test: /\.(jsx|js)$/,
         include: path.resolve(__dirname, "src"),

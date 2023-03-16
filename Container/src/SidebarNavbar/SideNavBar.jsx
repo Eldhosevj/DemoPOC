@@ -1,7 +1,17 @@
-import React, { useEffect, useState ,useRef} from "react";
+import React, {Suspense , useEffect, useState ,useRef} from "react";
+
 import "./SideNavBar.css";
 
 const SideNavBar = (props) => {
+const [showShippingMenu,setShowShippingMenu]=React.useState(true)
+const SideMenu = React.lazy(() => import("Shipping/SideMenu").then((component)=>{
+ setShowShippingMenu(true)
+  return component
+}).catch(err=>{
+  
+  setShowShippingMenu(false)
+}) )
+
   const inputRef = useRef(null);
   const [menu, setMenu] = useState([
    
@@ -49,11 +59,39 @@ const SideNavBar = (props) => {
     props.navigationClicked("/");
   };
  
-  useEffect(() => {
-    setMenu(menu);
-  }, [menu]);
-
-  
+ 
+useEffect(()=>{
+  console.log(showShippingMenu)
+  if(showShippingMenu==false){
+    setMenu(  [
+   
+      {
+        heading: "V-Trac",
+        icon: "fa fa-bar-chart",
+        SubMenu: [
+          { heading: "Orders", url: "/Orders" },
+          { heading: "Reports", url: "/Reports" },
+          { heading: "Logs", url: "/Logs" },
+        ],
+      },
+      {
+        heading: "Shared Data",
+        icon: "fas fa-user-friends",
+        SubMenu: [{ heading: "Customer", url: "/Customer" }],
+      },
+      {
+        heading: "Shipping",
+        icon: 'fas fa-truck',
+      },
+      {
+        heading: "Documents",
+        icon: "fa fa-file",
+        SubMenu: [{ heading: "View", url: "/View" }],
+      },
+    ])
+  }
+},[showShippingMenu])
+ 
   const onClickRemoveHeading=()=>{
     if(!shouldHeadingRemoved){
     setShowHeading(false)
@@ -67,10 +105,15 @@ const SideNavBar = (props) => {
     
     setShowHeading(true)
   }
+  
+ 
+
   return (
     <div>
       <div className="wrapper">
-        
+      <Suspense fallback={null}>    
+    <SideMenu/>
+</Suspense>
         <div className="sidebar" style={{width:showHeading?"200px":"80px"}}  onMouseEnter={()=> onClickAddHeading()} >
           <ul>
           <li className="No-Hover" onClick={() => props.navigationClicked("/")}>

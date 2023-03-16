@@ -26,6 +26,7 @@ module.exports = {
         "./RecievedShipment":
           "./src/components/RecievedShipment/RecievedShipment.js",
         "./ViewShipment": "./src/components/ViewShipment/ViewShipment.js",
+        "./SideMenu":"./src/components/SidebarNavbar/SideMenu.js"
       },
       shared: ["react", "react-dom"],
     }),

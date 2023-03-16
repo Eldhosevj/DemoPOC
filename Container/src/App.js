@@ -1,4 +1,4 @@
-import React, { Suspense, useState, useEffect } from "react";
+import React, {  useState, useEffect } from "react";
 import "./App.scss";
 import { Switch, Route, useHistory, useLocation } from "react-router-dom";
 import SelectRoute from "./Components/SelectRoute"
@@ -37,10 +37,10 @@ const App = () => {
     <>
     <SideNavBar navigationClicked={navigationClicked}/>
       <Switch>
-      {<Route path="/" strict exact>
+      <Route path="/" strict exact>
             <HomePage/>
         </Route>
-  }
+  
         <Route path="/Vtrac" strict exact>
             <SelectRoute url={route}/>
         </Route>
